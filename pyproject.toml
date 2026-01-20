@@ -1,6 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "terminalagent"
+name = "terminalgpt"
 version = "1.0.0"
+authors = [
+  { name="Prahlad Das", email="prahladdas0003@gmail.com" },
+]
+description = "A CLI tool for terminal commands generation by LLM"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "click",
+    "pyaudio",
+    "speechrecognition",
+    "langchain",
+    "langchain_ollama",
+]
 
 [project.scripts]
 terminalgpt = "cli.agent_cli:terminalagent"

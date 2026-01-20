@@ -1,9 +1,9 @@
-# TerminalAgent ✅
+# TerminalGPT ✅
 
-A small macOS CLI tool that generates and (optionally) executes Terminal commands using an Ollama LLM and (optional) voice input.
+A small macOS CLI tool that generates and (optionally) executes Terminal commands using an Ollama LLM and (optional) voice input. LLM runs locally and doesn't require internet or any kind of subscription.
 
 - Uses LangChain + langchain_ollama's `ChatOllama` to generate Mac terminal commands from plain-language prompts.
-- Provides a simple CLI entry point `terminalagent` (installed as a console script).
+- Provides a simple CLI entry point `terminalgpt` (installed as a console script).
 - Supports spoken prompts when invoked without an argument (uses the microphone + Google Speech Recognition via the `speech_recognition` package).
 
 ---
@@ -21,7 +21,7 @@ A small macOS CLI tool that generates and (optionally) executes Terminal command
 Requirements:
 - macOS (the tool uses AppleScript to run commands in Terminal.app)
 - Python 3.10+ (recommended)
-- Ollama installed with a compatible model available (the code defaults to `gpt-oss:20b`)
+- Ollama installed in your computer with a compatible model available (the code defaults to `gpt-oss:20b`)
 
 Installation (development / quick):
 
@@ -44,6 +44,25 @@ brew install portaudio
 python -m pip install pyaudio
 ```
 
+### Install for system wide use without virtual environment
+Build the project
+```Bash
+pip install build
+python -m build
+```
+Build files available in `/dist` folder
+
+Method - pipx using Homebrew:
+
+```Bash
+brew install pipx
+pipx ensurepath
+```
+Install your wheel file:
+
+```Bash
+pipx install ./your_package_name.whl
+```
 ---
 
 ## Usage
@@ -51,13 +70,18 @@ python -m pip install pyaudio
 Generate a command from a text prompt:
 
 ```bash
-terminalagent "list all files in my home directory"
+terminalgpt "list all files in my home directory"
+or
+tg "list all files in my home directory"
 ```
 
 Record a voice prompt (invoke without arguments):
 
 ```bash
-terminalagent
+terminalgpt
+# Then speak when prompted; the tool will transcribe and pass the text to the LLM
+or 
+tg
 # Then speak when prompted; the tool will transcribe and pass the text to the LLM
 ```
 
