@@ -22,6 +22,7 @@ Requirements:
 - macOS (the tool uses AppleScript to run commands in Terminal.app)
 - Python 3.10+ (recommended)
 - Ollama installed in your computer with a compatible model available (the code defaults to `gpt-oss:20b`)
+[Ollama-setup](https://ollama.com/download)
 
 Installation (development / quick):
 
