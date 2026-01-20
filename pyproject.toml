@@ -1,0 +1,7 @@
+[project]
+name = "terminalagent"
+version = "1.0.0"
+
+[project.scripts]
+terminalgpt = "cli.agent_cli:terminalagent"
+tg = "cli.agent_cli:terminalagent"

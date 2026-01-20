@@ -1,0 +1,5 @@
+click
+pyaudio
+speechrecognition
+langchain
+langchain_ollama
